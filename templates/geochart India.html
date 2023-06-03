@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <link rel="stylesheet"  type="text/css" href="{{url_for('.static', filename='style.css')}}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="blog.css">
+</head>
+<body background="blue.jpg">
+  
+
+
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href=" #">CP Index</a>
+      </div>
+      <ul>
+        <li><a href="/">Home</a></li>
+          <li><a href="/cpi/geo">State CPI chart</a></li>
+          <li><a href="/state">State</a></li>
+          <li><a href="/courses">Product</a></li>
+      </ul>
+      <div class="box">
+        
+       </div>
+       
+      <ul>
+        <li><a href="/"><span><i class="fa fa-home" style="font-size:24px"></i></span></a></li>
+        <li><a href="/loginpage"><span><i class="fa fa-user" style="font-size:24px"></i></span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <h1 align="center" style="background-color: black; color: white;">Statewise CPI</h1>
+  <div id="visualization" > </div>
+
+<script>
+google.load('visualization', '1', {'packages': ['geochart']});
+google.setOnLoadCallback(drawVisualization);
+
+function drawVisualization() {
+  var data = google.visualization.arrayToDataTable([
+    ['State', 'CPI'],
+    ['Uttar Pradesh', 175.8],
+    ['Maharashtra', 173.7],
+    ['Bihar', 174.0],
+    ['West Bengal', 184.3],
+    ['Madhya Pradesh', 177.9],
+    ['Tamil Nadu', 182.5],
+    ['Rajasthan', 172.8],
+    ['Karnataka', 179.5],
+    ['Gujarat', 169.4],
+    ['Andhra Pradesh',181.1],
+    ['Orissa', 176.3],
+    ['Telangana', 186.3],
+    ['Kerala', 181.0],
+    ['Jharkhand', 176.0],
+    ['Assam', 180.3],
+    ['Punjab', 168.7],
+    ['Chhattisgarh', 172.3],
+    ['Haryana', 172.9],
+    ['Jammu and Kashmir', 186.1],
+    ['Uttarakhand', 173.7],
+    ['Himachal Pradesh', 167.9],
+    ['Tripura', 193.9],
+    ['Meghalaya', 165.8],
+    ['Manipur', 183.5],
+    ['Nagaland', 181.2],
+    ['Goa', 168.3],
+    ['Arunachal Pradesh', 183.4],
+    ['Mizoram', 177.8],
+    ['Sikkim', 188.5],
+    ['Delhi', 165.3],
+    ['Puducherry', 180.6],
+    ['Chandigarh', 166.2],
+    ['Andaman and Nicobar Islands', 184.9],
+    ['Dadra and Nagar Haveli', 168.0],
+    ['Daman and Diu', 176.2],
+    ['Lakshadweep', 179.8]
+  ]);
+  
+  var opts = {
+    region: 'IN',
+    displayMode: 'regions',
+    resolution: 'provinces',
+    colorAxis: {colors: ['#90EE90', '#006400']},
+    width: 900, 
+    height: 500
+  };
+  var geochart = new google.visualization.GeoChart(
+      document.getElementById('visualization'));
+  geochart.draw(data, opts);
+};
+
+</script>
+<style>
+  #visualization{
+    margin: 1em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    width: 800px;
+    
+  }
+  body{
+    background-size: cover;
+background-position: center;
+position: relative;
+background-repeat: no-repeat;
+  }
+</style>
+</body>
+</html>
+
